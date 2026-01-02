@@ -1,0 +1,191 @@
+/* Ogólne ustawienia sekcji */
+.about-section {
+    padding: 80px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfcfc;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Ważne dla urządzeń mobilnych */
+}
+
+/* Stylizacja obrazka */
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: block;
+}
+
+.image-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: rgb(255, 164, 27); /* Kolor czerwony */
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(255, 164, 27, 0.3);
+    transform: rotate(5deg);
+}
+
+/* Treść po prawej */
+.about-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.subheading {
+    display: block;
+    color: #ffa41b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    color: #264653;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Małe cechy (ikony) */
+.features {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.feature-item .icon {
+    font-size: 24px;
+    background: #f0fdfa;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.feature-item h4 {
+    margin: 0 0 5px 0;
+    color: #264653;
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Przycisk */
+.about-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.about-btn:hover {
+    background-color: rgb(255, 164, 27);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 164, 27, 0.2);
+}
+
+/* Styl podstawowy dla linków w popupie */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease; /* Pozwala na płynne przesunięcie całego wiersza */
+}
+
+.contact-info a.nrtel {
+    color: #1a1a1a;            /* Kolor domyślny (ciemny) */
+    text-decoration: none;      /* Usuwamy standardowe podkreślenie */
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease; /* Płynna zmiana koloru */
+    display: inline-block;
+}
+
+/* EFEKT HOVER */
+
+/* 1. Kiedy najedziesz na cały wiersz (ikonka + tekst) */
+.contact-info p:hover {
+    transform: translateX(8px); /* Lekkie przesunięcie w prawo */
+}
+
+/* 2. Zmiana koloru tekstu i dodanie podkreślenia */
+.contact-info p:hover a.nrtel {
+    color: #ffa41b;             /* Zmiana na Twój pomarańczowy/złoty kolor */
+    text-decoration: underline; /* Powrót podkreślenia przy najechaniu */
+}
+
+/* 3. Opcjonalnie: lekki efekt na ikonce */
+.contact-info p:hover img {
+    filter: brightness(1.2);    /* Rozjaśnienie ikonki */
+    transform: scale(1.1);      /* Delikatne powiększenie ikonki */
+    transition: all 0.3s ease;
+}
+
+/* Responsywność (Telefony) */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 50px 0;
+    }
+    
+    .about-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-image {
+        order: 2; /* Obrazek ląduje pod tekstem na mobile */
+    }
+
+    .about-content {
+        order: 1;
+        text-align: center;
+    }
+
+    .feature-item {
+        text-align: left;
+    }
+
+    .image-badge {
+        right: 10px;
+        bottom: 10px;
+    }
+}

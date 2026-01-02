@@ -1,0 +1,474 @@
+/* css/style.css */
+
+html, body {
+  height: 100%;          /* ważne! */
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a; /* bardzo ciemny szary – czytelny tekst */
+  background-color: #fdf6f0; /* kremowe tło – jasne, ciepłe */
+  display: flex;
+  flex-direction: column; /* elementy układają się pionowo */
+  min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+.menu-preview {
+  padding: 4rem 0;                  /* dużo miejsca z góry i dołu */
+  background: #fdf6f0;              /* kremowe tło jak reszta strony */
+  text-align: center;               /* wyśrodkowanie zdjęcia */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background-color: #1a1a1a; /* ceglasty czerwony – wietnamski klimat */
+  color: #ffffff;
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;            /* WSZYSTKO w jednej poziomej linii – logo i li */
+  justify-content: space-between; /* logo lewo, menu prawo */
+  gap: 3rem;                      /* odstęp między logo a menu */
+  height: 100%;                   /* wypełnia całą wysokość headera */
+}
+
+.logo {
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  /* color: #ffa41b; /* musztardowy żółty – kontrast na czerwonym */
+}
+
+.logo img {
+  height: 75px;
+  width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;            /* li dokładnie w tej samej linii co logo */
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 164, 27, 0.2);
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #ffa41b; /* żółty przycisk #ffa41b;*/
+  color: #1a1a1a;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #e0b800;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #b22222;
+  border: 2px solid #b22222;
+}
+
+.btn-secondary:hover {
+  background-color: #f8f1e9;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+              url('../img/hero.jpeg') center/cover no-repeat;
+  color: #ffffff;
+  text-align: center;
+  padding: 180px 0;
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Karty dań (przykładowe w menu) */
+.dish {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dish:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.dish h3 {
+  color: #b22222;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: #f4c430;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.add-to-cart {
+  background: #f4c430;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.add-to-cart:hover {
+  background: #e0b800;
+}
+
+/* Koszyk */
+.cart {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+#order-btn {
+  background: #b22222;
+  color: white;
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+#order-btn:hover {
+  background: #8b1a1a;
+}
+
+/* Footer */
+footer {
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+#menupic {
+    margin-top: -600px;
+    scale: 100%;
+    max-width: 100%;                  /* nie wychodzi poza ekran */
+  height: auto;
+  border-radius: 15px;              /* zaokrąglone rogi */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* delikatny cień */
+  display: block;
+  margin: 0 auto;  
+}
+
+#footerlogo {
+    display: block;             /* ważne! */
+    margin: 1rem auto 3rem;
+    scale: 150%;
+}
+
+#fullmenu {
+    padding: 15px;
+    background-color: #f4c430;
+}
+
+.reservations {
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.restauracja-footer {
+ font-size: 2em;
+ font-weight: bold;
+ letter-spacing: 1.5px;
+}
+
+.p4 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(209, 209, 209, 0.05);
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+#nrtel {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.2em;
+  font-weight: 400;
+
+}
+
+#d2 {
+  margin-top: 30px;
+}
+
+#email {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   FOOTER - NOWY STYL
+   ========================================= */
+footer {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  padding: 60px 0 20px;
+  margin-top: auto;
+}
+
+/* Kontener dla danych (Kontakt + Godziny) */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dwie równe kolumny */
+  gap: 40px;
+  text-align: left; /* Zmiana z center na left dla elegancji */
+  margin-bottom: 40px;
+}
+
+#footerlogo {
+  display: block;
+  margin: 0 auto 50px; /* Logo na środku nad kolumnami */
+  transition: transform 0.3s;
+}
+
+#footerlogo:hover {
+  transform: scale(1.05);
+}
+
+/* Klasa .p4 - resetujemy Twoje stare ustawienia */
+.p4 {
+  width: 100% !important; /* Nadpisujemy Twoje 50% */
+  padding: 0;
+  margin: 0;
+  box-shadow: none; /* Usuwamy cień, w ciemnej stopce go nie widać */
+}
+
+.restauracja-footer {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffa41b; /* Musztardowy żółty dla nagłówków */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  border-left: 3px solid #ffa41b;
+  padding-left: 15px;
+}
+
+.reservations {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.reservations p {
+  margin-bottom: 8px;
+}
+
+/* Linki w stopce */
+#nrtel, #email {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 0.3s;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+#nrtel:hover, #email:hover {
+  color: #ffa41b;
+}
+
+/* Mapa */
+.map-container {
+  margin: 40px 0 !important;
+  border: 2px solid #333;
+}
+
+/* Copyright na samym dole */
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* 1. Główny kontener kolumn */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dwie równe części */
+    gap: 100px;                    /* Odstęp między kolumnami - możesz go zmniejszyć/zwiększyć */
+    align-items: start;
+    max-width: 1100px;             /* Szerokość dopasowana do mapy */
+    margin: 40px auto;             /* Wyśrodkowanie na stronie */
+}
+
+/* 2. Reset wspólny dla obu kolumn */
+#d1, #d2 {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+/* 3. LEWA KOLUMNA (Kontakt) */
+#d1 {
+    text-align: left;
+}
+
+#d1 .restauracja-footer {
+    border-left: 3px solid #ffa41b; /* Pasek po lewej */
+    border-right: none;             /* Upewniamy się, że nie ma paska po prawej */
+    padding-left: 15px;
+    padding-right: 0;
+    margin-bottom: 20px;
+}
+
+/* 4. PRAWA KOLUMNA (Godziny) */
+#d2 {
+    text-align: right;
+}
+
+#d2 .restauracja-footer {
+    border-right: 3px solid #ffa41b; /* Pasek po prawej */
+    border-left: none;              /* TO USUNIE TEN PASEK ZE ŚRODKA */
+    padding-right: 15px;
+    padding-left: 0;
+    margin-bottom: 20px;
+    display: inline-block;          /* Ważne, żeby pasek był tuż przy tekście */
+    width: 100%;
+}
+
+/* 5. Naprawy dla tekstów pod nagłówkami */
+.reservations, .reservations p {
+    margin: 5px 0;
+}
+
+#d2 .reservations p {
+    text-align: right; /* Upewniamy się, że godziny też są do prawej */
+}
+
+/* Dodatkowy fix dla napisów pod nagłówkami */
+.reservations, #nrtel, #email {
+  display: block; /* Żeby łatwiej kontrolować ich pozycję */
+}
+
+/* Jeśli chcesz, żeby na telefonach wróciło do środka/lewej */
+@media (max-width: 768px) {
+  #d2 {
+    text-align: center;
+  }
+  #d2 .restauracja-footer {
+    border-right: none;
+    border-bottom: 2px solid #ffa41b;
+    padding-right: 0;
+  }
+}
+
+/* RESPONSYWNOŚĆ DLA STOPKI */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* Jedna kolumna na telefonie */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .restauracja-footer {
+    border-left: none;
+    border-bottom: 2px solid #ffa41b;
+    display: inline-block;
+    padding-left: 0;
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero {
+    padding: 120px 0;
+  }
+}
