@@ -161,3 +161,32 @@
       grid-row: span 1;
     }
   }
+
+@media (max-width: 768px) {
+    /* Zmniejszamy wysokość całego paska */
+    header {
+        padding: 5px 0 !important;
+        min-height: 60px !important;
+    }
+
+    /* Zmniejszamy flagę (logo) - to ona najczęściej rozpycha header */
+    .logo img {
+        height: 45px !important; /* Wymuszamy małą wysokość */
+        width: auto !important;
+        margin: 5px 0 !important;
+    }
+
+    /* Ustawiamy elementy w jednej linii */
+    .header-inner {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        height: 50px !important;
+    }
+
+    /* Hamburger musi być wyśrodkowany do flagi */
+    .hamburger {
+        margin-top: 0 !important;
+        display: flex !important;
+    }
+}
