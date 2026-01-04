@@ -16,21 +16,21 @@
     text-align: center;
   }
   
-  h2 {
+  .menu h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
     color: #333;
     position: relative;
-  }
-  
-  h2::after {
+}
+
+.menu h2::after {
     content: '';
     width: 80px;
     height: 4px;
-    background: #e67e22; /* pomarańczowy akcent */
+    background: #e67e22; 
     display: block;
     margin: 15px auto 0;
-  }
+}
   
   .photo-grid {
     display: grid;
@@ -91,51 +91,6 @@
   }
   
 
-.modal-window {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.7);
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-/* Magia dzieje się tutaj */
-.modal-window:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.modal-window > div {
-  width: 400px;
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 2em;
-  background: white;
-}
-
-#contactModal {
-  border: none;
-  border-radius: 16px;
-  padding: 0;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  overflow: hidden; /* Żeby rogi były ładnie przycięte */
-}
-
-/* Stylizacja tła (to co jest pod popupem) */
-#contactModal::backdrop {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px); /* Efekt rozmycia tła strony */
-}
-
-/* Animacja otwierania */
-#contactModal[open] {
-  animation: show 0.4s ease normal;
-}
 
 @keyframes show {
   from {
@@ -148,60 +103,6 @@
   }
 }
 
-/* Nagłówek */
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  background: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.modal-header h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: var(--text-dark);
-  font-family: sans-serif;
-}
-
-/* Przycisk X w rogu */
-.close-x {
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #9ca3af;
-  transition: color 0.2s;
-}
-
-.close-x:hover {
-  color: #ef4444;
-}
-
-/* Treść środkowa */
-.modal-body {
-  padding: 24px;
-  font-family: sans-serif;
-  line-height: 1.5;
-  color: #4b5563;
-}
-
-.contact-info {
-  margin-top: 15px;
-  padding: 10px;
-  background: #eff6ff;
-  border-radius: 8px;
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-/* Stopka i przycisk */
-.modal-footer {
-  padding: 16px 24px;
-  text-align: right;
-  background: #f9fafb;
-}
 
 .btn-secondary {
   background: var(--primary-color);
@@ -239,48 +140,7 @@
 }
 
 
-/* Styl podstawowy dla linków w popupie */
-.contact-info p {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease; /* Pozwala na płynne przesunięcie całego wiersza */
-}
 
-.contact-info a.nrtel {
-    color: #1a1a1a;            /* Kolor domyślny (ciemny) */
-    text-decoration: none;      /* Usuwamy standardowe podkreślenie */
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.3s ease; /* Płynna zmiana koloru */
-    display: inline-block;
-}
-
-/* EFEKT HOVER */
-
-/* 1. Kiedy najedziesz na cały wiersz (ikonka + tekst) */
-.contact-info p:hover {
-    transform: translateX(8px); /* Lekkie przesunięcie w prawo */
-}
-
-/* 2. Zmiana koloru tekstu i dodanie podkreślenia */
-.contact-info p:hover a.nrtel {
-    color: #ffa41b;             /* Zmiana na Twój pomarańczowy/złoty kolor */
-    text-decoration: underline; /* Powrót podkreślenia przy najechaniu */
-}
-
-/* 3. Opcjonalnie: lekki efekt na ikonce */
-.contact-info p:hover img {
-    filter: brightness(1.2);    /* Rozjaśnienie ikonki */
-    transform: scale(1.1);      /* Delikatne powiększenie ikonki */
-    transition: all 0.3s ease;
-}
-/* 3. POPRAWKA ANIMACJI */
-/* Ponieważ używamy transform do centrowania, musimy go uwzględnić w animacji */
-#contactModal[open] {
-  animation: showCenter 0.4s ease forwards;
-}
 
 @keyframes showCenter {
   from {
@@ -293,27 +153,6 @@
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
-}
-
-/* Tło pozostaje bez zmian */
-#contactModal::backdrop {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-}
-
-.nrtel {
-    color: #1a1a1a;
-    text-decoration: underline;
-    font-weight: 600;
-}
-
-.contact-info img {
-  vertical-align: middle;   /* Ustawia środek obrazka na wysokości środka tekstu */
-  margin-right: 10px;       /* Odstęp od tekstu */
-}
-
-.contact-info a {
-  vertical-align: middle;   /* Upewnia się, że tekst też trzyma linię */
 }
 
   @media (max-width: 768px) {

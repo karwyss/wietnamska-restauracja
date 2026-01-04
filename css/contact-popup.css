@@ -1,223 +1,192 @@
-.modal-window {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.7);
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s;
-}
+/* --- NOWOCZESNY POPUP KONTAKTOWY --- */
 
-/* Magia dzieje się tutaj */
-.modal-window:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.modal-window > div {
-  width: 400px;
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 2em;
-  background: white;
-}
-
-#contactModal {
-  border: none;
-  border-radius: 16px;
-  padding: 0;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  overflow: hidden; /* Żeby rogi były ładnie przycięte */
-}
-
-/* Stylizacja tła (to co jest pod popupem) */
-#contactModal::backdrop {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px); /* Efekt rozmycia tła strony */
-}
-
-/* Animacja otwierania */
-#contactModal[open] {
-  animation: show 0.4s ease normal;
-}
-
-@keyframes show {
-  from {
-    transform: translateY(20px) scale(0.95);
+/* Główne okno modala */
+#contactModal.modal {
+    border: none;
+    border-radius: 30px; /* Bardzo obłe rogi dla nowoczesnego wyglądu */
+    padding: 0;
+    width: 95%;
+    max-width: 420px;
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    
+    /* Centrowanie */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); /* Start mniejszy do animacji */
+    margin: 0;
     opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efekt sprężynki */
 }
 
-/* Nagłówek */
+/* Kiedy popup jest otwarty */
+#contactModal[open] {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    display: block;
+}
+
+/* Tło strony - efekt rozmytego szkła */
+#contactModal::backdrop {
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(12px); /* Mocne rozmycie tła strony */
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Nagłówek popupu */
 .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  background: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
+    padding: 40px 20px 10px;
+    text-align: center;
 }
 
 .modal-header h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: var(--text-dark);
-  font-family: sans-serif;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
 }
 
-/* Przycisk X w rogu */
-.close-x {
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #9ca3af;
-  transition: color 0.2s;
+/* Pomarańczowa kropka pod nagłówkiem */
+.modal-header::after {
+    content: "";
+    display: block;
+    width: 60px;        /* Zmieniamy z 8px na 60px */
+    height: 4px;        /* Zmieniamy z 8px na 4px */
+    background: #ffa41b;
+    border-radius: 2px; /* Zmieniamy z 50% na 2px, żeby była kreska, a nie elipsa */
+    margin: 15px auto 0;
 }
-
-.close-x:hover {
-  color: #ef4444;
-}
-
-/* Treść środkowa */
+/* Środek popupu */
 .modal-body {
-  padding: 24px;
-  font-family: sans-serif;
-  line-height: 1.5;
-  color: #4b5563;
+    padding: 20px 35px 40px;
 }
 
+.modal-body > p {
+    text-align: center;
+    color: #777;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Kontenery z ikonami (Karty) */
 .contact-info {
-  margin-top: 15px;
-  padding: 10px;
-  background: #eff6ff;
-  border-radius: 8px;
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-/* Stopka i przycisk */
-.modal-footer {
-  padding: 16px 24px;
-  text-align: right;
-  background: #f9fafb;
-}
-
-.btn-secondary {
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-
-.btn-secondary:hover {
-  background: #1d4ed8;
-}
-
-
-#contactModal {
-  /* 1. Reset i Pozycjonowanie */
-  border: none;
-  border-radius: 16px;
-  padding: 0;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  
-  /* 2. KLUCZ DO CENTROWANIA */
-  position: fixed;      /* Stała pozycja względem ekranu */
-  top: 50%;             /* 50% od góry */
-  left: 50%;            /* 50% od lewej */
-  margin: 0;            /* Usuwamy domyślne marginesy przeglądarki */
-  transform: translate(-50%, -50%); /* Przesunięcie o połowę własnej szerokości/wysokości wstecz */
-  
-  overflow: hidden;
-}
-
-/* 3. POPRAWKA ANIMACJI */
-/* Ponieważ używamy transform do centrowania, musimy go uwzględnić w animacji */
-#contactModal[open] {
-  animation: showCenter 0.4s ease forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .contact-info p {
+    background: #f8f9fa;
+    padding: 18px 20px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease; /* Pozwala na płynne przesunięcie całego wiersza */
+    gap: 15px;
+    transition: all 0.2s ease;
+    border: 1px solid #eee;
 }
 
-.contact-info a.nrtel {
-    color: #1a1a1a;            /* Kolor domyślny (ciemny) */
-    text-decoration: none;      /* Usuwamy standardowe podkreślenie */
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.3s ease; /* Płynna zmiana koloru */
-    display: inline-block;
-}
-
-/* EFEKT HOVER */
-
-/* 1. Kiedy najedziesz na cały wiersz (ikonka + tekst) */
+/* Efekt najechania na telefon/mail */
 .contact-info p:hover {
-    transform: translateX(8px); /* Lekkie przesunięcie w prawo */
+    background: #fff;
+    border-color: #ffa41b;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 164, 27, 0.1);
 }
 
-/* 2. Zmiana koloru tekstu i dodanie podkreślenia */
-.contact-info p:hover a.nrtel {
-    color: #ffa41b;             /* Zmiana na Twój pomarańczowy/złoty kolor */
-    text-decoration: underline; /* Powrót podkreślenia przy najechaniu */
-}
-
-/* 3. Opcjonalnie: lekki efekt na ikonce */
-.contact-info p:hover img {
-    filter: brightness(1.2);    /* Rozjaśnienie ikonki */
-    transform: scale(1.1);      /* Delikatne powiększenie ikonki */
-    transition: all 0.3s ease;
-}
-
-@keyframes showCenter {
-  from {
-    /* Start: na środku, ale niżej i przeźroczysty */
-    transform: translate(-50%, -45%) scale(0.95);
-    opacity: 0;
-  }
-  to {
-    /* Koniec: idealny środek */
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-}
-
-/* Tło pozostaje bez zmian */
-#contactModal::backdrop {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+/* Ikony i Linki */
+.contact-info img {
+    width: 24px;
+    height: 24px;
 }
 
 .nrtel {
+    text-decoration: none;
     color: #1a1a1a;
-    text-decoration: underline;
     font-weight: 600;
+    font-size: 1.05rem;
 }
 
-.contact-info img {
-  vertical-align: middle;   /* Ustawia środek obrazka na wysokości środka tekstu */
-  margin-right: 10px;       /* Odstęp od tekstu */
+/* Przycisk zamknięcia (jeśli go odkomentujesz w HTML) */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #eee;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+    transition: 0.2s;
 }
 
-.contact-info a {
-  vertical-align: middle;   /* Upewnia się, że tekst też trzyma linię */
+.close-modal:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    #contactModal.modal {
+        width: 90%;
+        padding: 0; /* Reset paddingu głównego, kontrolujemy go w header/body */
+    }
+}
+
+/* Dla małych telefonów (poniżej 480px) */
+@media (max-width: 480px) {
+    #contactModal.modal {
+        border-radius: 20px; /* Nieco mniejsze rogi na małym ekranie */
+    }
+
+    .modal-header {
+        padding: 30px 15px 10px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.4rem; /* Mniejszy nagłówek, żeby nie przeskoczył do 2 linii */
+    }
+
+    .modal-body {
+        padding: 10px 20px 30px; /* Mniejszy padding wewnętrzny */
+    }
+
+    .modal-body > p {
+        font-size: 0.85rem; /* Mniejszy opis */
+        margin-bottom: 20px;
+    }
+
+    .contact-info p {
+        padding: 14px 15px; /* Mniejsze "karty" kontaktu */
+        border-radius: 15px;
+        gap: 10px;
+    }
+
+    .nrtel {
+        font-size: 0.9rem; /* Mniejszy font numeru i maila */
+    }
+
+    .contact-info img {
+        width: 20px; /* Mniejsze ikonki */
+        height: 20px;
+    }
+}
+
+/* Fix dla telefonów trzymanych poziomo (niski ekran) */
+@media (max-height: 500px) {
+    #contactModal.modal {
+        max-height: 95vh; /* Żeby popup nie był wyższy niż ekran */
+        overflow-y: auto; /* Dodaje przewijanie tylko wewnątrz popupu, jeśli się nie mieści */
+    }
+    
+    .modal-header {
+        padding-top: 20px;
+    }
 }

@@ -55,8 +55,6 @@
   height: 300px;
 }
 
-
-
 @media (max-width: 900px) {
   .photo-grid {
     grid-template-columns: 1fr 1fr;

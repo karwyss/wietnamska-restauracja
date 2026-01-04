@@ -549,4 +549,31 @@ footer {
   .hamburger.is-active .bar:nth-child(2) { opacity: 0; }
   .hamburger.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .hamburger.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .logo img {
+    height: 50px !important; /* Mniejsza flaga */
+    width: auto !important;
+  }
+
+  header {
+    padding: 0.5rem 0 !important;
+  }
+
+  /* 2. KLUCZOWA POPRAWKA: Zmniejszamy gigantyczny margines w Hero */
+  .hero {
+    padding: 60px 20px !important; /* Zamiast 180px */
+  }
+
+  .hero h1 {
+    font-size: 1.8rem !important; /* Mniejszy napis, żeby się nie rozwalał */
+  }
+
+  .hero p {
+    font-size: 1rem !important;
+  }
+
+  /* 3. Naprawa białej przestrzeni pod menu */
+  .header-inner {
+    gap: 1rem !important;
+  }
 }

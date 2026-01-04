@@ -122,53 +122,17 @@
     box-shadow: 0 10px 20px rgba(255, 164, 27, 0.2);
 }
 
-/* Styl podstawowy dla linków w popupie */
-.contact-info p {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease; /* Pozwala na płynne przesunięcie całego wiersza */
-}
-
-.contact-info a.nrtel {
-    color: #1a1a1a;            /* Kolor domyślny (ciemny) */
-    text-decoration: none;      /* Usuwamy standardowe podkreślenie */
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.3s ease; /* Płynna zmiana koloru */
-    display: inline-block;
-}
-
-/* EFEKT HOVER */
-
-/* 1. Kiedy najedziesz na cały wiersz (ikonka + tekst) */
-.contact-info p:hover {
-    transform: translateX(8px); /* Lekkie przesunięcie w prawo */
-}
-
-/* 2. Zmiana koloru tekstu i dodanie podkreślenia */
-.contact-info p:hover a.nrtel {
-    color: #ffa41b;             /* Zmiana na Twój pomarańczowy/złoty kolor */
-    text-decoration: underline; /* Powrót podkreślenia przy najechaniu */
-}
-
-/* 3. Opcjonalnie: lekki efekt na ikonce */
-.contact-info p:hover img {
-    filter: brightness(1.2);    /* Rozjaśnienie ikonki */
-    transform: scale(1.1);      /* Delikatne powiększenie ikonki */
-    transition: all 0.3s ease;
-}
 
 /* Responsywność (Telefony) */
 @media (max-width: 768px) {
     .about-section {
-        padding: 50px 0;
+        padding: 30px 20px;
     }
     
     .about-wrapper {
         flex-direction: column;
         gap: 30px;
+        text-align: center;
     }
 
     .about-image {
@@ -187,5 +151,21 @@
     .image-badge {
         right: 10px;
         bottom: 10px;
+    }
+
+     .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .logo img {
+        height: 50px !important; /* Zmniejszamy flagę na mobile */
+        width: auto;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem;
     }
 }

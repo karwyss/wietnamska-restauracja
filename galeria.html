@@ -1,7 +1,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contact-popup.css">
     <link rel="stylesheet" href="css/gallery-styles.css">
     <link rel="stylesheet" href="css/contact-popup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,19 +38,25 @@
 </header>
 
 <body>
-  <dialog id="contactModal">
-  <div class="modal-header">
-    <h2>Skontaktuj się</h2>
-    <!-- <button id="closeContactTop" class=".close-modal">&times;</button> -->
-  </div>
-  <div class="modal-body">
-    <p>Masz pytania? Napisz do nas bezpośrednio lub zadzwoń.</p>
-    <div class="contact-info">
-      <p><img src="img\mail.png" width="24px" height="24px"><a class="nrtel" href="mailto:email@przyklad.pl">email@przyklad.pl</a></p>
-      <p><img src="img\phone-call.png" width="24px" height="24px"><a class="nrtel" href="tel:+48789999660">+48 789 999 660</a></p>
-    </div>
-  </div>
-</dialog>
+<dialog id="contactModal" class="modal">
+      <div class="modal-header">
+        <h2>Skontaktuj się</h2>
+        <!-- <button class="close-modal">&times;</button> -->
+      </div>
+      <div class="modal-body">
+        <p>Masz pytania? Napisz do nas bezpośrednio lub zadzwoń.</p>
+        <div class="contact-info">
+          <p>
+            <img src="img/mail.png" width="24" height="24" alt="Email">
+            <a class="nrtel" href="mailto:email@przyklad.pl">email@przyklad.pl</a>
+          </p>
+          <p>
+            <img src="img/phone-call.png" width="24" height="24" alt="Telefon">
+            <a class="nrtel" href="tel:+48789999660">+48 789 999 660</a>
+          </p>
+        </div>
+      </div>
+    </dialog>
 
     <section class="gallery" id="galeria">
   <div class="container">
